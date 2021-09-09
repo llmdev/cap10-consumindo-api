@@ -19,7 +19,7 @@ Utilizamos a api de embed google maps para criar o mapa com a rota do usuario at
 link: https://developers.google.com/maps/documentation/embed/get-started
 
 
-Igor Simões Fugiwara, Lucas Lopes de Moura, Paulo Cesar Pereira Demutti
+Alunos: Igor Simões Fugiwara, Lucas Lopes de Moura, Paulo Cesar Pereira Demutti
 
 
 
