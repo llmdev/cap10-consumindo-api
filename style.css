@@ -359,3 +359,31 @@ h1 {
     }
     
 }
+
+.parceiro__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.parceiro__header__detail {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.parceiro__detalhes {
+    display: flex;
+}
+
+.parceiro__detalhes_direita {
+    padding: 0 20px;
+}
+
+.star-icon {
+    width: 20px;
+}
+
+.card_avaliacao {
+    border: 1px dashed grey;
+    padding: 10px;
+    margin-bottom: 10px;
+}

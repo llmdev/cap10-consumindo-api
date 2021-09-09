@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
   <title>Hospedagem - Gulliver Traaveler</title>
+  <script src="./geolocation.js"></script>
 </head>
 
 <body>
@@ -68,15 +69,15 @@
             </div>
 
             <div class="col-12 col-md-12 position-relative mt-lg-5 special-padding">
-                <input class="form-control w-100 mt-5" type="text" placeholder="O que procura para sua viagem?">
-                <span class="position-absolute icon__search-input"><svg width="16" height="15" viewBox="0 0 16 15"
-                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M11.0767 9.43396H10.3767L10.1286 9.2024C10.997 8.2247 11.5198 6.9554 11.5198 5.57461C11.5198 2.49571 8.94114 0 5.75991 0C2.57867 0 0 2.49571 0 5.57461C0 8.65352 2.57867 11.1492 5.75991 11.1492C7.18659 11.1492 8.49808 10.6432 9.50827 9.80274L9.74753 10.0429V10.7204L14.1782 15L15.4986 13.7221L11.0767 9.43396ZM5.75991 9.43396C3.55342 9.43396 1.77228 7.71012 1.77228 5.57461C1.77228 3.43911 3.55342 1.71527 5.75991 1.71527C7.96639 1.71527 9.74753 3.43911 9.74753 5.57461C9.74753 7.71012 7.96639 9.43396 5.75991 9.43396Z"
-                      fill="black" />
-                  </svg>
-                </span>
-              
+              <input class="form-control w-100 mt-5" type="text" placeholder="O que procura para sua viagem?">
+              <span class="position-absolute icon__search-input"><svg width="16" height="15" viewBox="0 0 16 15"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.0767 9.43396H10.3767L10.1286 9.2024C10.997 8.2247 11.5198 6.9554 11.5198 5.57461C11.5198 2.49571 8.94114 0 5.75991 0C2.57867 0 0 2.49571 0 5.57461C0 8.65352 2.57867 11.1492 5.75991 11.1492C7.18659 11.1492 8.49808 10.6432 9.50827 9.80274L9.74753 10.0429V10.7204L14.1782 15L15.4986 13.7221L11.0767 9.43396ZM5.75991 9.43396C3.55342 9.43396 1.77228 7.71012 1.77228 5.57461C1.77228 3.43911 3.55342 1.71527 5.75991 1.71527C7.96639 1.71527 9.74753 3.43911 9.74753 5.57461C9.74753 7.71012 7.96639 9.43396 5.75991 9.43396Z"
+                    fill="black" />
+                </svg>
+              </span>
+
             </div>
           </div>
           <!-- MENU DETALHADO -->
@@ -206,387 +207,102 @@
           </div>
         </div>
       </div>
+      <hr>
+      <section class="parceiro">
+        <header class="parceiro__header">
+          <h3>Bar do Zé</h3>
+          <span class="parceiro__header__detail">Bar e Restaurante</span>
+        </header>
 
-      <!-- HOTEIS -->
-      <h3 class=" titulo">Hotéis</h3>
-    
-      <!-- If we need pagination -->
-      
+        <div class="parceiro__detalhes">
+          <figure>
+            <img src="./assets/bar-do-ze.jpg" alt="Foto do bar do Zé" width="520" />
+            <figcaption>Foto salao principal</figcaption>
+            <br />
+            <h6>Descrição</h6>
+            <p class="parceiro__detalhes__descricao">
+              Um bar é um estabelecimento comercial com balcão e pequenas mesas em que se servem bebidas alcoólicas e
+              não alcoólicas. Além disso, em geral, são servidos petiscos e outras iguarias. Há pequenas diferenças
+              entre pubs, bares, botecos e tavernas, todos eles locais onde bebidas alcoólicas são comercializadas.
+            </p>
+          </figure>
 
-      <!-- Slider main container -->
-      <div class="swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper" >
-          <!-- Slides -->
-          <div class="swiper-slide">
-            <div class="container-card">
-              <div class="card">
-                <figure class="col-5 card__image">
-                  <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                </figure>
-                <div class="col-7 pt-4">
-                  <h5>Ibis Style Anhembi</h5>
-                  <p class="m-0">Oeste- Morumbi</p>
-                  <ul class="card__rating p-0 m-0">
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                  </ul>
-                  <div class="row">
-                    <div class="card__preco col-6">
-                      <p class="p-0 m-0">A partir de</p>
-                      <span class="font-weight-bold">R$400,00</span>
-                    </div>
-                    <div class="card__botoes col-6">
-                      <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                      <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                    </div>
-                  </div>
+          <div class="parceiro__detalhes_direita">
+          
+            <div class="parceiro__mapa">
+              <h5>Como Chegar</h5>
+              <form onsubmit="return codeAddress(event)">
+                <label>
+                  Digite aqui o seu cep:
+                  <input type="text" name="cep" class="meucep">
+                  <input type="submit" value="como chegar?" >
+                </label>
+              </form>
+              <div class="mapouter">
+                <div class="gmap_canvas">
+                  <iframe class="iframe-maps" width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+                  src="https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJcUFP0B_4zpQRRBE8Byi6Uag&destination=place_id:ChIJS4KFpvpbzpQRNNUIfcX83r4&key=AIzaSyCCE0hFijDgC0JRk59KCj5uMTc7guUCQzo"></iframe>
                 </div>
               </div>
             </div>
           </div>
-
-
-          <div class="swiper-slide">
-            <div class="container-card">
-              <div class="card row">
-                <figure class="col-5 card__image1 card__image">
-                  <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                </figure>
-                <div class="col-7 pt-4">
-                  <h5>Ibis Style Anhembi</h5>
-                  <p class="m-0">Oeste- Morumbi</p>
-                  <ul class="card__rating p-0 m-0">
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                  </ul>
-                  <div class="row">
-                    <div class="card__preco col-6">
-                      <p class="p-0 m-0">A partir de</p>
-                      <span class="font-weight-bold">R$400,00</span>
-                    </div>
-                    <div class="card__botoes col-6">
-                      <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                      <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="swiper-slide">
-            <div class="container-card">
-              <div class="card row">
-                <figure class="col-5 card__image card__image2">
-                  <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                </figure>
-                <div class="col-7 pt-4">
-                  <h5>Ibis Style Anhembi</h5>
-                  <p class="m-0">Oeste- Morumbi</p>
-                  <ul class="card__rating p-0 m-0">
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                  </ul>
-                  <div class="row">
-                    <div class="card__preco col-6">
-                      <p class="p-0 m-0">A partir de</p>
-                      <span class="font-weight-bold">R$400,00</span>
-                    </div>
-                    <div class="card__botoes col-6">
-                      <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                      <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="container-card">
-              <div class="card row">
-                <figure class="col-5 card__image">
-                  <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                </figure>
-                <div class="col-7 pt-4">
-                  <h5>Ibis Style Anhembi</h5>
-                  <p class="m-0">Oeste- Morumbi</p>
-                  <ul class="card__rating p-0 m-0">
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                  </ul>
-                  <div class="row">
-                    <div class="card__preco col-6">
-                      <p class="p-0 m-0">A partir de</p>
-                      <span class="font-weight-bold">R$400,00</span>
-                    </div>
-                    <div class="card__botoes col-6">
-                      <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                      <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="swiper-slide">
-            <div class="container-card">
-              <div class="card row">
-                <figure class="col-5 card__image2 card__image">
-                  <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                </figure>
-                <div class="col-7 pt-4">
-                  <h5>Ibis Style Anhembi</h5>
-                  <p class="m-0">Oeste- Morumbi</p>
-                  <ul class="card__rating p-0 m-0">
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                    <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                  </ul>
-                  <div class="row">
-                    <div class="card__preco col-6">
-                      <p class="p-0 m-0">A partir de</p>
-                      <span class="font-weight-bold">R$400,00</span>
-                    </div>
-                    <div class="card__botoes col-6">
-                      <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                      <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-
-
-
-
         </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
 
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <hr>
+        <h4>Avaliações</h4>
 
-      </div>
+        <div class="card_avaliacao">
+          <p>De: <strong>Fulano</strong></p>
+          <p>Mensagem: Otimo lugar para levar a familia</p>
+          <p>Estrelas: <img class="star-icon" src="./assets/star.svg"><img class="star-icon" src="./assets/star.svg"><img class="star-icon" src="./assets/star.svg"><img class="star-icon" src="./assets/star.svg"></p>
+        </div>
 
 
-            <!-- POUSADA -->
-            <h3 class=" titulo">Pousada</h3>
-    
-            <!-- If we need pagination -->
-            
-      
-            <!-- Slider main container -->
-            <div class="swiper-container">
-              <!-- Additional required wrapper -->
-              <div class="swiper-wrapper" >
-                <!-- Slides -->
-                <div class="swiper-slide">
-                  <div class="container-card">
-                    <div class="card">
-                      <figure class="col-5 card__image1 card__image">
-                        <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                      </figure>
-                      <div class="col-7 pt-4">
-                        <h5>Ibis Style Anhembi</h5>
-                        <p class="m-0">Oeste- Morumbi</p>
-                        <ul class="card__rating p-0 m-0">
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                        </ul>
-                        <div class="row">
-                          <div class="card__preco col-6">
-                            <p class="p-0 m-0">A partir de</p>
-                            <span class="font-weight-bold">R$400,00</span>
-                          </div>
-                          <div class="card__botoes col-6">
-                            <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                            <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-      
-      
-                <div class="swiper-slide">
-                  <div class="container-card">
-                    <div class="card row">
-                      <figure class="col-5 card__image">
-                        <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                      </figure>
-                      <div class="col-7 pt-4">
-                        <h5>Ibis Style Anhembi</h5>
-                        <p class="m-0">Oeste- Morumbi</p>
-                        <ul class="card__rating p-0 m-0">
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                        </ul>
-                        <div class="row">
-                          <div class="card__preco col-6">
-                            <p class="p-0 m-0">A partir de</p>
-                            <span class="font-weight-bold">R$400,00</span>
-                          </div>
-                          <div class="card__botoes col-6">
-                            <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                            <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-      
-      
-                <div class="swiper-slide">
-                  <div class="container-card">
-                    <div class="card row">
-                      <figure class="col-5 card__image">
-                        <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                      </figure>
-                      <div class="col-7 pt-4">
-                        <h5>Ibis Style Anhembi</h5>
-                        <p class="m-0">Oeste- Morumbi</p>
-                        <ul class="card__rating p-0 m-0">
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                        </ul>
-                        <div class="row">
-                          <div class="card__preco col-6">
-                            <p class="p-0 m-0">A partir de</p>
-                            <span class="font-weight-bold">R$400,00</span>
-                          </div>
-                          <div class="card__botoes col-6">
-                            <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                            <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-      
-                <div class="swiper-slide">
-                  <div class="container-card">
-                    <div class="card row">
-                      <figure class="col-5 card__image1 card__image">
-                        <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                      </figure>
-                      <div class="col-7 pt-4">
-                        <h5>Ibis Style Anhembi</h5>
-                        <p class="m-0">Oeste- Morumbi</p>
-                        <ul class="card__rating p-0 m-0">
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                        </ul>
-                        <div class="row">
-                          <div class="card__preco col-6">
-                            <p class="p-0 m-0">A partir de</p>
-                            <span class="font-weight-bold">R$400,00</span>
-                          </div>
-                          <div class="card__botoes col-6">
-                            <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                            <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-      
-      
-                <div class="swiper-slide">
-                  <div class="container-card">
-                    <div class="card row">
-                      <figure class="col-5 card__image2 card__image">
-                        <!-- <img src="./assets/IBIS.png" alt="" class="w-100 img-fluid"> -->
-                      </figure>
-                      <div class="col-7 pt-4">
-                        <h5>Ibis Style Anhembi</h5>
-                        <p class="m-0">Oeste- Morumbi</p>
-                        <ul class="card__rating p-0 m-0">
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                          <li class="card__rating__star"><img src="./assets/Glyph_.svg" alt=""></li>
-                        </ul>
-                        <div class="row">
-                          <div class="card__preco col-6">
-                            <p class="p-0 m-0">A partir de</p>
-                            <span class="font-weight-bold">R$400,00</span>
-                          </div>
-                          <div class="card__botoes col-6">
-                            <button type="button" class="btn btn-link" class="">Mais Detalhes</button>
-                            <button type="button" class="btn btn-link font-weight-bold" class="">Reservar</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-      
-      
-      
-      
-      
-      
-      
-              </div>
-              <!-- If we need pagination -->
-              <div class="swiper-pagination"></div>
-      
-              <!-- If we need navigation buttons -->
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-      
-            </div>
+        <div class="card_avaliacao">
+          <p>De: <strong>Maria</strong></p>
+          <p>Mensagem: Ambiente agradavel</p>
+          <p>Estrelas: <img class="star-icon" src="./assets/star.svg"><img class="star-icon" src="./assets/star.svg"></p>
+        </div>
 
-    </div>
-    </div>
-    <!-- Pousadas -->
+        <div class="card_avaliacao">
+          <p>De: <strong>Jaum</strong></p>
+          <p>Mensagem: Bebida sempre gelada!</p>
+          <p>Estrelas: <img class="star-icon" src="./assets/star.svg"><img class="star-icon" src="./assets/star.svg"><img class="star-icon" src="./assets/star.svg"><img class="star-icon" src="./assets/star.svg"><img class="star-icon" src="./assets/star.svg"></p>
+        </div>
 
+        <div class="card_avaliacao">
+          <p>De: <strong>Beltrano</strong></p>
+          <p>Mensagem: Beleza de lugar, so minha comida estava fria</p>
+          <p>Estrelas: <img class="star-icon" src="./assets/star.svg"></p>
+        </div>
+        
+
+      </section>
   </main>
 
   <footer class="rodape">
     <div class="container">
       <button class="float__button">></button>
 
-    <div class="rodape__redessociais">
-      <ul>
-        <li><a href=""> <img src="./assets/Facebook Circled.svg" alt=""></a></li>
-        <li><a href=""> <img src="./assets/Vector3.svg" alt=""></a></li>
-        <li><a href=""> <img src="./assets/Vector4.svg" alt=""></a></li>
-        <li><a href=""> <img src="./assets/TripAdvisor.svg" alt=""></a></li>
-      </ul>
-    </div>
-    <div class="rodape__link">
-      <ul>
-        <li><a href="">Minha Conta</a></li>
-        <li><a href="">Seja um Traveller</a></li>
-        <li><a href="">Contato</a></li>
-        <li><a href="">Mapa do site</a></li>
-      </ul>
-    </div>
-    <div class="rodape__direitos">
-      <p>© 2021 Gulliver Traveller - Todos os direitos reservados.</p>
-    </div>
+      <div class="rodape__redessociais">
+        <ul>
+          <li><a href=""> <img src="./assets/Facebook Circled.svg" alt=""></a></li>
+          <li><a href=""> <img src="./assets/Vector3.svg" alt=""></a></li>
+          <li><a href=""> <img src="./assets/Vector4.svg" alt=""></a></li>
+          <li><a href=""> <img src="./assets/TripAdvisor.svg" alt=""></a></li>
+        </ul>
+      </div>
+      <div class="rodape__link">
+        <ul>
+          <li><a href="">Minha Conta</a></li>
+          <li><a href="">Seja um Traveller</a></li>
+          <li><a href="">Contato</a></li>
+          <li><a href="">Mapa do site</a></li>
+        </ul>
+      </div>
+      <div class="rodape__direitos">
+        <p>© 2021 Gulliver Traveller - Todos os direitos reservados.</p>
+      </div>
     </div>
   </footer>
 
